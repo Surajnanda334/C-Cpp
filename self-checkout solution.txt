@@ -1,0 +1,14 @@
+Problem Statement 1: Build a self-checkout solution for a Retailer
+
+Problem Statement 2: Build a conversational solution that enables customers to discover and order products
+
+Problem Statement 3: Build a solution to help the customers find products in the store and help them navigate to the corresponding aisle/shelf. 
+If there is a shopping list, provide the best shopping trip to complete the purchases
+
+Problem Statement 4: Build a smart store replenishment system.
+
+
+
+
+
+
