@@ -1,0 +1,178 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+public:
+    int data;
+    Node *next;
+};
+
+void fun(Node* n)
+{
+    while(n != NULL)
+    {
+        cout<<n->data<<" ";
+        n=n->next;
+    }
+
+    cout<<"done"<<endl;
+};
+
+int main()
+{
+    Node* head = NULL;
+    Node* second = NULL;
+    Node* third = NULL;
+    Node* fourth = NULL;
+    Node* fifth = NULL;
+    Node* sixth = NULL;
+
+    head = new Node;
+    second = new Node;
+    third = new Node;
+    fourth = new Node;
+    fifth = new Node;
+    sixth = new Node;
+
+
+    head->data = 1;
+    head->next = second;
+
+    second->data = 2;
+    second->next = third;
+
+    third->data = 3;
+    third->next = NULL;
+
+    fun(head);
+    cout<<"_________FRONT_________"<<endl;
+
+    fourth->data=4;
+    fourth->next=head;
+    head = fourth;
+
+    fun(head);
+    cout<<"_________Given_________"<<endl;
+
+    fifth->data = 5;
+    second->next = fifth;
+    fifth->next = third;
+
+    fun(head);
+    cout<<"_________End_________"<<endl;
+
+    sixth->data = 6;
+    sixth->next = NULL;
+    if(head == NULL)
+    {
+        head == sixth;
+    }
+    else{
+        Node* last = head;
+        while(last->next != NULL)
+            last = last ->next;
+        last->next = sixth;
+    }
+
+    fun(head);
+    cout<<"_________Delete-Front_________"<<endl;
+
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+
+    fun(head);
+    cout<<"_________Delete-Given_________"<<endl;
+
+    Node* cNode = head->next;
+    Node* pNode = head;
+    while(cNode != NULL)
+    {
+        if (cNode->data == 5)
+        {
+            pNode->next = cNode->next;
+            delete(cNode);
+        }
+        cNode = cNode->next;
+        pNode = pNode->next;
+    }
+
+    fun(head);
+
+    cout<<"_________Delete-End_________"<<endl;
+
+    Node* eNode = head;
+    while(eNode->next && eNode->next->next != NULL)
+    {
+        eNode = eNode->next;
+    }
+    delete(eNode->next);
+    eNode->next = NULL;
+
+    fun(head);
+
+    cout<<"_________Count_________"<<endl;
+
+    int i = 0;
+    Node* count = head;
+    while(count !=NULL)
+    {
+        i++;
+        count = count->next;
+    }
+    cout<<i<<endl;
+
+    cout<<"_________Middle_________"<<endl;
+
+    Node* fast = head;
+    Node* slow = head;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    cout<<slow->data<<endl;
+
+    cout<<"_________Count Element_________"<<endl;
+
+    Node* j = head;
+    int d = 0;
+    
+    while(j != NULL)
+    {
+        if(j->data == 1 )
+        {
+            d++;
+        }
+        j = j->next;
+    }
+    cout<<d<<endl;
+
+    cout<<"_________Reverse_________"<<endl;
+
+    Node* next = NULL;
+    Node* current = head;
+    Node* prev = NULL;
+    while (current != NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+
+    fun(head);
+
+    cout<<"_________Reverse_________"<<endl;
+
+
+
+
+
+
+
+
+    return 0;
+}

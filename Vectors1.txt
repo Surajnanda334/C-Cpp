@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+   // vector <int> a ;
+    vector <int> b = {1,7,88,90,44,33};
+    vector <int> c = {1,7,8,0,42,35};
+    vector <int> d = {1,7,86,9,40,36};
+
+    /*a.push_back(9);
+    a.push_back(8);
+    a.push_back(7);
+    a.push_back(6);
+    a.push_back(5);
+    a.push_back(4);
+
+    for(int i=0 ; i <= 6; i++)
+    {
+        a.push_back(i);
+    }
+    for(int & itr : a)
+    {
+        cout<<itr<<" ";
+    }
+    cout<<endl;
+    cout<<a.capacity()<<endl;
+    cout<<a.size()<<endl;
+    cout<<a.front()<<endl;
+    cout<<a.back()<<endl;
+
+    reverse(a.begin(),a.end());
+
+    for(int & itr : a)
+    {
+        cout<<itr<<" ";
+    }
+
+    */
+    cout<<"**************************"<<endl;
+
+    sort(b.begin(),b.end());
+    sort(c.begin(),c.end());
+    sort(d.begin(),d.end());
+
+    for(int & itr : b)
+    {
+        cout<<itr<<" ";
+    }
+
+    for(int & itr : c)
+    {
+        cout<<itr<<" ";
+    }
+
+    for(int & itr : d)
+    {
+        cout<<itr<<" ";
+    }
+
+    vector <int> su(c.size() + d.size());
+    vector <int> sw(su.size() + b.size());
+    vector <int>::iterator it,st;
+
+    set_union(c.begin(), c.end(), d.begin(), d.end(), su.begin());
+    it = set_union(su.begin(),su.end(),b.begin(),b.end(),sw.begin());
+
+    cout<<"\nAfter Joining"<<endl;
+
+    for(int & it: sw)
+    {
+        cout<<it<<" ";
+    }
+
+    return 0;
+}
